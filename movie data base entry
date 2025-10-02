@@ -1,0 +1,66 @@
+'''Create a class Movie with:
+
+title (str)
+
+director (str)
+
+year (int)
+
+rating (float out of 10)
+
+Requirements:
+
+Constructor initializes all fields.
+
+Add a method is_classic() that returns True if year < 2000.
+
+Add a method display_summary() that prints all info neatly.
+
+Add a method update_rating(new_rating) to update the movie's rating
+'''
+class Movie:
+    def __init__(self,titel,director,year,rating):
+        self.titel=titel
+        self.director=director
+        self.year=year
+        self.rating=rating
+
+    def is_classic(self):
+        if year<2000:
+            return True
+            
+    def display_summary(self):
+        print(f"movie titel:{self.titel}")
+        print(f"director name:{self.director}")
+        print(f"relased year:{self.year}")
+        print(f"rating the movie:{self.rating/10}")
+        
+    def update_rating(self,new_rating):
+        if 0<=new_rating<=10:
+            self.rating=new_rating
+        else:
+            print("invalid ratinng")
+            
+movie1=Movie ("Sholay", "Ramesh Sippy",1975, 9.0)
+movie2=Movie("Dilwale Dulhania Le Jayenge", "Aditya Chopra", 1995, 8.1)
+movie3=Movie("3 Idiots", "Rajkumar Hirani",2009, 8.4)
+movie4=Movie( "Dangal",  "Nitesh Tiwari",  2016,  8.3)
+movie5=Movie("PK", "Rajkumar Hirani",  2014, 8.1)
+
+movie1.display_summary()
+movie2.display_summary()
+movie3.display_summary()
+movie4.display_summary()
+movie5.display_summary()
+
+movie1.update_rating(9.1)
+movie2.update_rating(9.2)
+movie3.update_rating(9.3)
+movie4.update_rating(9.4)
+movie5.update_rating(9.5)
+
+movie1.display_summary()
+movie2.display_summary()
+movie3.display_summary()
+movie4.display_summary()
+movie5.display_summary()
