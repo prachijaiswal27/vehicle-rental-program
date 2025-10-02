@@ -1,0 +1,47 @@
+class Vehicle():
+    def __init__(self,make,model,year,rental_rate):
+        self.make=make
+        self.model=model
+        self.year=year
+        self.rental_rate=rental_rate
+    def calculate_rental_cost(self,days):
+        return self.rental_rate * days
+        
+class Car(Vehicle):
+    def __init__(self,make,model,year,rental_rate,seats):
+        super().__init__(make,model,year,rental_rate)
+        self.seats=seats
+        
+    def calculate_rental_cost(self,days):
+        return super().calculate_rental_cost(days)
+        
+class Bike(Vehicle):
+    def __init__(self,make,model,year,rental_rate,has_gear):
+        super().__init__(make,model,year,rental_rate)
+        self.has_gear=has_gear
+    
+    def calculate_rental_cost(self,days):
+        return super().calculate_rental_cost(days)
+        if days>5:
+            cost *=0.9
+        return cost
+        
+class Truck(Vehicle):
+    def __init__(self,make,model,year,rental_rate,cargo_limit):
+        super().__init__(make,model,year,rental_rate)
+        self.cargo_limit=cargo_limit
+        
+    def calculate_rental_cost(self,days):
+        return super().calculate_rental_cost(days)
+        if days<3:
+            cost*=1.15
+        return cost
+
+car = Car("Toyota", "Camry", 2020, 50, 5)
+bike = Bike("Hero", "Ranger", 2021, 15, True)
+truck = Truck("Volvo", "HeavyDuty", 2019, 120, 10)
+
+# Rent for different durations
+print(f"Car rental for 4 days: ${car.calculate_rental_cost(4):.2f}")
+print(f"Bike rental for 6 days: ${bike.calculate_rental_cost(6):.2f}")
+print(f"Truck rental for 2 days: ${truck.calculate_rental_cost(2):.2f}")
